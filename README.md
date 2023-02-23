@@ -7,9 +7,9 @@
 2-Run the following command:
 
 __g++ -std=c++11 problem1.cpp -o problem1 -lpthread__ <br>
-(for problem 1)
+(for problem 1)<br>
 __g++ -std=c++11 problem2.cpp -o problem2 -lpthread__ <br>
-(for problem 2)
+(for problem 2)<br>
 
 3-Run the following command:
 
@@ -36,8 +36,8 @@ The other guests would have a simpler job, their job involved the following:<br>
 With these two roles, we will know when everyone has gone through at least once when the counter has reached the same number as the amount of guests.<br>
 
 Now, how is this done with threads?<br>
-In problem1.cpp, we have a *guest* function, this is the function that the threads get created on, this function contains a flag to whetheer or not the guest is the counter/leader.<br>
-Next, we have a *Dungeon* class, this class is in charge of having a *cupcake_room* function which handles the guests going in and doing their job.<br>
+In problem1.cpp, we have a **guest** function, this is the function that the threads get created on, this function contains a flag to whetheer or not the guest is the counter/leader.<br>
+Next, we have a **Dungeon** class, this class is in charge of having a **cupcake_room** function which handles the guests going in and doing their job.<br>
 ```cpp
         void cupcake_room(std::string thread_name, bool refill_cupcake, bool consume_cupcake, bool* refilled_cupcake, bool* ate_cupcake){
             bool refilled = false;
@@ -65,7 +65,7 @@ Next, we have a *Dungeon* class, this class is in charge of having a *cupcake_ro
             threadsafe_debug(thread_name, "says there's nothing here");
         }
 ```
-<br>Only the leader has *refill_cupcake* as true, the rest only eat if *ate_cupcake* is set to false.<br>
+<br>Only the leader has **refill_cupcake** as true, the rest only eat if **ate_cupcake** is set to false.<br>
 
 As for how the threads are instructed to go in, since I wanted to keep it random I used a **ticket** system, which works in the following way:<br>
 1-The ticket number goes from 1 to number_guests<br>
